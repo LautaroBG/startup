@@ -14,11 +14,13 @@
   <section>
     <form>
       <textarea class="text-to-store" id="text-area" placeholder="write here"></textarea>
+      <p id="status"></p>
       <button id="store-button" onclick="saveText(event)">save</button>
       <button id="clear-button" onclick="removeText(event)">clear</button>
     </form>
   </section>
-  <script src="storage.js"></script>
+  <script src="storage.js" async></script>
+  <script src="dragAndDrop.js" async></script>
 </body>
 
 </html>

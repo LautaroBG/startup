@@ -15,11 +15,11 @@ openRequest.onerror = function(event){
 };
 
 openRequest.onsuccess = function(event){
-  db = event.result;
+  db = openRequest.result;
 };
 
 openRequest.onupgradeneeded = function(event){ 
-  var db = event.target.result;
+  db = openRequest.result;
 
   // objeto puede contener cualquier tipo de valor. La clave es generada automáticamente, o se puede indicar un argumento de clave distinto si se quiere usar una clave específica.
   db.createObjectStore("text-to-store");
