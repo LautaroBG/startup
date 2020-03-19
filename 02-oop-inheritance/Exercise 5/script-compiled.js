@@ -1,5 +1,5 @@
-export default class Actor {
-  constructor(name, age) {
+class Actor{
+  constructor (name, age){
     this.name = name;
     this.age = age;
   }
@@ -21,35 +21,35 @@ export default class Actor {
   }
 
 }
-export default class EventEmitter {
+class EventEmitter {
   constructor() {
     this.events = {};
   }
-
-  on(eventName, callback) {
-    if (!this.events[eventName]) {
+  
+  on(eventName, callback){
+    if( !this.events[eventName] ){
       this.events[eventName] = [];
     }
-
-    this.events[eventName].push(callback);
+    
+    this.events[eventName].push(callback)
   }
-
-  emit(eventName) {
-    if (this.events[eventName]) {
+  
+  emit(eventName){
+    if( this.events[eventName] ) {
       this.events[eventName].forEach(callback => {
         callback.call(eventName);
       });
     }
   }
-
-  off(eventName, callback) {
-    if (this.events[eventName]) {
+  
+  off(eventName, callback){
+    if ( this.events[eventName] ) {
       this.events[eventName] = this.events[eventName].filter(call => call !== callback);
     }
   }
-
+  
 }
-export default class Logger {
+class Logger {
   constructor() {}
 
   log(info) {
@@ -57,61 +57,37 @@ export default class Logger {
   }
 
 }
-import EventEmitter from "./EventEmitter.js";
-import Actor from "./Actor.js";
-import Logger from "./Logger.js";
-import Movie from "./Movie.js";
-const terminator = new Movie('Terminator I', 1985, 60);
-const arnold = new Actor('Arnold Schwarzenegger', 50);
-const actors = [new Actor('Paul Winfield', 50), new Actor('Michael Biehn', 50), new Actor('Linda Hamilton', 50)];
-terminator.addCast(arnold);
-terminator.addCast(actors);
-terminator.play();
-let mixin = {
-  share(friendName) {
-    return friendName + " shared " + this.title;
-  },
-
-  like(friendName) {
-    return friendName + " liked " + this.title;
-  }
-
-};
-var ironman = new Movie("Ironman", 2008, 126);
-Object.assign(ironman, social);
-import EventEmitter from "./EventEmitter.js";
-import Actor from "./Actor.js";
-export default class Movie extends EventEmitter {
-  constructor(name, year, duration) {
+class Movie extends EventEmitter{
+  constructor (name, year, duration){
     super();
-    this.title = name;
-    this.year = year;
-    this.duration = duration;
+    this._title = name;
+    this._year = year;
+    this._duration = duration;
     this.cast = [];
   }
 
   get title() {
-    return this.title;
+    return this._title;
   }
 
   set title(title) {
-    this.title = title;
+    this._title = title;
   }
 
   get year() {
-    return this.year;
+    return this._year;
   }
 
   set year(year) {
-    this.year = year;
+    this._year = year;
   }
 
   get duration() {
-    return this.duration;
+    return this._duration;
   }
 
   set duration(duration) {
-    this.duration = duration;
+    this._duration = duration;
   }
 
   play() {
@@ -133,7 +109,8 @@ export default class Movie extends EventEmitter {
           this.cast.push(cast[i]);
         }
       }
-    } else {
+    }
+    else {
       if (cast instanceof Actor) {
         this.cast.push(cast);
       }
@@ -141,3 +118,21 @@ export default class Movie extends EventEmitter {
   }
 
 }
+const terminator = new Movie('Terminator I', 1985, 60);
+const arnold = new Actor('Arnold Schwarzenegger', 50);
+const actors = [new Actor('Paul Winfield', 50), new Actor('Michael Biehn', 50), new Actor('Linda Hamilton', 50)];
+terminator.addCast(arnold);
+terminator.addCast(actors);
+terminator.play();
+let mixin = {
+  share(friendName) {
+    return friendName + " shared " + this.title;
+  },
+
+  like(friendName) {
+    return friendName + " liked " + this.title;
+  }
+
+};
+var ironman = new Movie("Ironman", 2008, 126);
+Object.assign(ironman, mixin);

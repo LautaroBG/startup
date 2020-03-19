@@ -1,38 +1,36 @@
-import EventEmitter from "./EventEmitter.js";
-import Actor from "./Actor.js";
-
-export default class Movie extends EventEmitter{
+/**
+class Movie extends EventEmitter{
 
   constructor (name, year, duration){
     super();
-    this.title = name;
-    this.year = year;
-    this.duration = duration;
+    this._title = name;
+    this._year = year;
+    this._duration = duration;
     this.cast = [];
   }
 
   get title() {
-    return this.title;
+    return this._title;
   }
 
   set title(title) {
-    this.title = title;
+    this._title = title;
   }
 
   get year() {
-    return this.year;
+    return this._year;
   }
 
   set year(year) {
-    this.year = year;
+    this._year = year;
   }
 
   get duration() {
-    return this.duration;
+    return this._duration;
   }
 
   set duration(duration) {
-    this.duration = duration;
+    this._duration = duration;
   }
 
   play() {
@@ -62,3 +60,4 @@ export default class Movie extends EventEmitter{
     }
   }
 }
+*/

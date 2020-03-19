@@ -1,8 +1,3 @@
-import EventEmitter from "./EventEmitter.js";
-import Actor from "./Actor.js";
-import Logger from "./Logger.js";
-import Movie from "./Movie.js";
-
 const terminator = new Movie('Terminator I', 1985, 60);
 const arnold = new Actor('Arnold Schwarzenegger', 50);
 const actors = [
@@ -27,5 +22,5 @@ let mixin = {
 
 var ironman = new Movie("Ironman", 2008, 126);
 
-Object.assign(ironman, social);
+Object.assign(ironman, mixin);
 

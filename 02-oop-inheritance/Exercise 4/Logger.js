@@ -1,4 +1,5 @@
-export default class Logger {
+/**
+class Logger {
 
   constructor(){
 
@@ -8,3 +9,4 @@ export default class Logger {
     console.log("The '" + info + "' event has been emitted");
   }
 }
+*/

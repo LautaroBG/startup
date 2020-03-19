@@ -1,4 +1,5 @@
-export default class Actor{
+/**
+class Actor{
 
   constructor (name, age){
     this.name = name;
@@ -21,3 +22,4 @@ export default class Actor{
     this.name = name;
   }
 }
+*/
